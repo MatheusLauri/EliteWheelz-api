@@ -6,7 +6,7 @@ import cors from 'cors'
 import express from 'express'
 
 import clientesController from './controlller/clientesController.js'
-
+import veiculoController from './controlller/veiculoController.js'
 
 const server = express()
 
@@ -16,6 +16,7 @@ server.use(express.json())
 
 
 server.use(clientesController)
+server.use(veiculoController)
 
 
 

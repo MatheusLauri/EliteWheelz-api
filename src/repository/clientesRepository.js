@@ -87,6 +87,3 @@ export async function RemoverCliente (id){
     return resposta.affectedRows
 }
 
-
-
-// veiculos abaixo 
