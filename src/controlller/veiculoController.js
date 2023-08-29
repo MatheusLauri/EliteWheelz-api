@@ -56,7 +56,7 @@ endpoints.put('/veiculo', async (req,resp) => {
 
         const resposta = await alterar(alt, alt2)
 
-        resp.json(resposta)
+        resp.send({linhas: resposta})
 
     }catch(err){
         resp.status(500).send({
