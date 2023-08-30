@@ -5,6 +5,26 @@ import './index.scss';
 import axios from 'axios';
 
 export default function ClientsControl() {
+  const [nome, setNome] = useState('');
+  const [Email, setEmail] = useState('');
+  const [Telefone, setTelefone] = useState('');
+  const [CPF, setCPF] = useState('');
+  const [CNH, setCNH] = useState('');
+  const [clientsList, setClientsList] = useState([]);
+
+  const Insert = async () => {
+    let teste = {
+      name: nome,
+      email: Email,
+      telefone: Telefone,
+      cpf: CPF,
+      cnh: CNH
+    }
+    
+    let response = await axios.post('http://localhost:5000/cliente', teste);
+  }
+
+
 
   return (
     <div className="MainApp">
