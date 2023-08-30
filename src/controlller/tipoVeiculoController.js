@@ -1,18 +1,16 @@
 
 import { Router } from "express";
-import { buscarTipoPorId } from "../repository/tipoVeiculoRepository.js";
+import { buscarTipos } from "../repository/tipoVeiculoRepository.js";
 
 
 const endpoints = Router()
 
 
-endpoints.get('/tipo/:id', async (req, resp) => {
+endpoints.get('/tipo', async (req, resp) => {
 
     try {
 
-        const {id} = req.params
-
-        const resposta = await buscarTipoPorId(id)
+        const resposta = await buscarTipos()
 
         resp.send(resposta)
         

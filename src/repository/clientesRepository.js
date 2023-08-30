@@ -28,11 +28,11 @@ export async function InserirCliente (cliente) {
 
 export async function ListarCliente (){
     
-    const comando = `SELECT NM_NOME AS Nome,
-                            DS_EMAIL AS Email,
+    const comando = `SELECT NM_NOME     AS Nome,
+                            DS_EMAIL    AS Email,
                             DS_TELEFONE AS Tel, 
-                            DS_CPF AS CPF,
-                            DS_CNH AS CNH 
+                            DS_CPF      AS CPF,
+                            DS_CNH      AS CNH 
                      FROM TB_CLIENTE`
 
     const [resposta] = await con.query (comando)

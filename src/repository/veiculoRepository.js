@@ -9,7 +9,7 @@ export async function InserirVeiculo(veiculo) {
 
     const [resp] = await con.query(comando,
         [
-            veiculo.idTipoVeiculo,
+            veiculo.TipoVeiculo,
             veiculo.modelo,
             veiculo.marca,
             veiculo.ano,
