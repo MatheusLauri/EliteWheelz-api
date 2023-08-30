@@ -7,6 +7,8 @@ import express from 'express'
 
 import clientesController from './controlller/clientesController.js'
 import veiculoController from './controlller/veiculoController.js'
+import tipoVeiculoController from './controlller/tipoVeiculoController.js'
+
 
 const server = express()
 
@@ -17,6 +19,8 @@ server.use(express.json())
 
 server.use(clientesController)
 server.use(veiculoController)
+server.use(tipoVeiculoController)
+
 
 
 
