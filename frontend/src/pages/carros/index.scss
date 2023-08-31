@@ -9,15 +9,15 @@
         main {
             padding: 35px;
 
-            .Title {
+            .Titulo {
                 h4 {
                     margin-bottom: -25px;
                     color: #F47A08;
                 }
             }
 
-            .newCar,
-            .CarsList {
+            .NovoCarro,
+            .Carrolista {
                 display: flex;
                 flex-direction: column;
                 box-shadow: 0px 0px 8px 0px #7A7A7A40;
@@ -75,7 +75,7 @@
 
         }
 
-        .CarsList {
+        .Carrolista {
 
             table {
                 border-collapse: separate;

@@ -1,18 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 import './index.scss';
-import App from './pages/home';
+
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import ClientsControl from './pages/clients';
-import CarsControl from './pages/cars';
-import Location from './pages/location';
+
+import Home from './pages/home';
+import ClientsControl from './pages/clientes';
+import CarsControl from './pages/carros';
+import Location from './pages/locacao';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<App />}/>
+        <Route path='/' element={<Home/>}/>
         <Route path='/clientsControl' element={<ClientsControl/>}/>
         <Route path='/carcontrol' element={<CarsControl/>}/>
         <Route path='/location' element={<Location/>}/>

@@ -1,4 +1,4 @@
-import './accountBar.scss'
+import './index.scss'
 
 export default function AccountBar() {
 

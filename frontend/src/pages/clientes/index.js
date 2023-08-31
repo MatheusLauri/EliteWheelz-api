@@ -1,43 +1,25 @@
 import { useEffect, useRef, useState } from 'react';
-import AccountBar from '../components/accountBar/accountBar';
-import LateralMenu from '../components/menuComponent/menu';
+import Cabecalho from '../components/cabecalhoComponente/index.js';
+import LateralMenu from '../components/menuComponente/index.js';
 import './index.scss';
 import axios from 'axios';
 
 export default function ClientsControl() {
-  const [nome, setNome] = useState('');
-  const [Email, setEmail] = useState('');
-  const [Telefone, setTelefone] = useState('');
-  const [CPF, setCPF] = useState('');
-  const [CNH, setCNH] = useState('');
-  const [clientsList, setClientsList] = useState([]);
-
-  const Insert = async () => {
-    let teste = {
-      name: nome,
-      email: Email,
-      telefone: Telefone,
-      cpf: CPF,
-      cnh: CNH
-    }
-    
-    let response = await axios.post('http://localhost:5000/cliente', teste);
-  }
-
+  
 
 
   return (
     <div className="MainApp">
       <LateralMenu />
       <div className='inputs_Tables'>
-        < AccountBar />
+        <Cabecalho/>
         <div className='content'>
-          <div className='Title'>
+          <div className='Titulo'>
             <h4>ÁREA ADMINISTRATIVA</h4>
             <h1>Controle de Clientes</h1>
           </div>
 
-          <section className='newClient'>
+          <section className='NovoCliente'>
             <h1> Novo Cliente </h1>
             <span >
               <label>Nome</label>
@@ -65,12 +47,12 @@ export default function ClientsControl() {
             </span>
 
             <span className='btnSpan'>
-              <button onClick={Insert}> Salvar </button>
+              <button> Salvar </button>
             </span>
 
           </section>
 
-          <section className='ClientsList'>
+          <section className='ClientsLista'>
             <h1>Lista de Clientes</h1>
             <span>
               <label>Nome</label>
@@ -92,16 +74,7 @@ export default function ClientsControl() {
                 </tr>
               </thead>
               <tbody>
-                {clientsList.map( item => 
-                <tr>
-                  <td>{item.NM_CLIENTE}</td>
-                  <td> {item.DS_EMAIL} </td>
-                  <td> {item.DS_CPF} </td>
-                  <td> {item.DS_CNH} </td>
-                  <td className='btns' style={{ display: 'flex', height: 20 }}><i class="fa-regular fa-pen-to-square"></i> <i class="fa-solid fa-delete-left"></i></td>
-                </tr>
-                  )}
-
+                {/* map aqui */}
               </tbody>
             </table>
 

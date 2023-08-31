@@ -1,13 +1,13 @@
-import AccountBar from '../components/accountBar/accountBar';
-import LateralMenu from '../components/menuComponent/menu';
+import Cabecalho from '../components/cabecalhoComponente/index.js';
+import LateralMenu from '../components/menuComponente/index.js';
 import './index.scss';
 
 function App() {
   return (
-    <div className="MainApp">
-      <LateralMenu />
+    <div className="Main">
+        <LateralMenu/>
       <div className='inputs_Tables'>
-        < AccountBar/>
+        <Cabecalho/>
        <h1>HOME</h1>
       </div>
     </div >

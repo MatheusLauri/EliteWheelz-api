@@ -1,16 +1,19 @@
-import './menu.scss'
+import './index.scss'
 import logo from '../../../assets/logo.png'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function LateralMenu() {
+      
+    // falta colocar as fotinhas no lado
+
 
     return (
         <div className='MainMenu'>
             <div className='content'>
 
                 <div className='imgEx'>
-                    <img src={logo} />
+                    <img src= {logo}/>
                     <h3>Elite<span>Wheels</span></h3>
                 </div>
 

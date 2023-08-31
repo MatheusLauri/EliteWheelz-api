@@ -1,23 +1,25 @@
 import './index.scss';
-import LateralMenu from '../components/menuComponent/menu';
-import AccountBar from '../components/accountBar/accountBar';
+import LateralMenu from '../components/menuComponente/index.js';
+import Cabecalho from '../components/cabecalhoComponente/index.js';
 import { useRef } from 'react';
 
 export default function CarsControl() {
 
 
+    // arrumar listagem pois não é map chamada na api
+
     return (
         <div className='CarsMain'>
             <LateralMenu />
             <div className='CarContent'>
-                <AccountBar />
+                <Cabecalho/>
                 <main>
-                    <div className='Title'>
+                    <div className='Titulo'>
                         <h4>ÁREA ADMINISTRATIVA</h4>
                         <h1>Controle de Clientes</h1>
                     </div>
 
-                    <section className='newCar'>
+                    <section className='NovoCarro'>
                         <h1> Novo Veículo </h1>
                         <span >
                             <label>Nome</label>
@@ -54,7 +56,7 @@ export default function CarsControl() {
 
                     </section>
 
-                    <section className='CarsList'>
+                    <section className='Carrolista'>
                         <h1>Lista de Veículos</h1>
                         <span >
                             <label>Modelo, Marca, Placa</label>

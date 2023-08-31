@@ -1,8 +1,7 @@
 import { useRef } from 'react';
-import AccountBar from '../components/accountBar/accountBar';
-import LateralMenu from '../components/menuComponent/menu';
+import Cabecalho from '../components/cabecalhoComponente/index.js';
+import LateralMenu from '../components/menuComponente/index.js';
 
-import searchIcon from '../../assets/Vector.png'
 
 import './index.scss';
 
@@ -11,11 +10,11 @@ export default function Location() {
 
 
     return (
-        <div className="MainLocation">
-            <LateralMenu />
+        <div className="Main">
+            <LateralMenu/>
 
             <div className='LocationInsert'>
-                < AccountBar />
+                <Cabecalho/>
 
                 <div className='content'>
 
@@ -33,8 +32,8 @@ export default function Location() {
                                 <input type='text' />
                             </span>
                             <div className='icons'>
-                                <i class="fa-solid fa-chevron-right"></i>
-                                <i class="fa-solid fa-chevron-right"></i>
+                                <i class="icons-aqui"></i>
+                                <i class="icons-aqui"></i>
                             </div>
                             <span >
                                 <label>Cliente</label>
@@ -54,8 +53,8 @@ export default function Location() {
                                 <input type='text' />
                             </span>
                             <div className='icons'>
-                                <i class="fa-solid fa-chevron-right"></i>
-                                <i class="fa-solid fa-chevron-right"></i>
+                                <i class="icons-aqui"></i>
+                                <i class="icons-aqui"></i>
                             </div>
                             <span>
 
@@ -93,15 +92,15 @@ export default function Location() {
                                 </span>
                         </div>
 
-                        <span className='btnSpan'>
+                        <span className='botaospan'>
                             <button> Salvar </button>
                         </span>
 
                     </section>
 
-                    <section className='ClientsList'>
+                    <section className='ClientsLista'>
                         <h1> Locações em Andamento </h1>
-                        <span className='inputNameSearch'>
+                        <span className='inputBusc'>
                             <label>Nome ou CPF</label>
                             <input type='text'  />
                         <i class="fa-solid fa-magnifying-glass"></i>
