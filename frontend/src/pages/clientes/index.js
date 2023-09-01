@@ -6,7 +6,48 @@ import axios from 'axios';
 
 export default function ClientsControl() {
   
+  const[nomeCliente, setnomeCliente] = useState('')
+  const[emailCliente, setemailCliente] = useState('')
+  const[telefoneCliente, setTelefoneCliente] = useState('')
+  const[CPFCliente, setCPFCliente] = useState('')
+  const[CnhCliente, setCnhCliente] = useState('')
+  const[tiposClientes, setTiposClientes] = useState([])
 
+  const[cliente, setCliente] = useState('')
+  const[erro, SetErro] = useState('')
+
+
+  async function AddCliente(){
+    try {
+      let cliente = {
+        nome: nomeCliente,
+        email: emailCliente,
+        telefone: telefoneCliente,
+        cpf: CPFCliente,
+        cnh: CnhCliente
+      }
+
+      let url = 'http://localhost:5000/cliente'
+      let resposta = await axios.post(url, cliente)
+
+      alert("Cadastrou")
+    } catch (err) {
+      SetErro(err.response.data.erro)
+    }
+  }
+
+  async function listarCliente(){
+    try {
+      
+      let url = 'http://localhost:5000/cliente/' + cliente
+      let resposta = await axios.get(url)
+      
+      console.log(resposta.data)
+      setTiposClientes(resposta.data)
+    } catch (err) {
+      SetErro(err.response.data.erro)
+    }
+  }
 
   return (
     <div className="MainApp">
@@ -23,31 +64,31 @@ export default function ClientsControl() {
             <h1> Novo Cliente </h1>
             <span >
               <label>Nome</label>
-              <input type='text' />
+              <input type='text' value={nomeCliente}  onChange={e => setnomeCliente(e.target.value)}/>
             </span>
 
             <span >
               <label>Email</label>
-              <input type='text' />
+              <input type='text' value={emailCliente}  onChange={e => setemailCliente(e.target.value)}/>
             </span>
 
             <span>
               <label>Telefone</label>
-              <input type='text' />
+              <input type='text' value={telefoneCliente}  onChange={e => setTelefoneCliente(e.target.value)}/>
             </span>
 
             <span>
               <label>CPF</label>
-              <input type='text' />
+              <input type='text' value={CPFCliente}  onChange={e => setCPFCliente(e.target.value)}/>
             </span>
 
             <span>
               <label>CNH</label>
-              <input type='text' />
+              <input type='text' value={CnhCliente}  onChange={e => setCnhCliente(e.target.value)}/>
             </span>
 
             <span className='btnSpan'>
-              <button> Salvar </button>
+              <button onClick={AddCliente} > Salvar </button>
             </span>
 
           </section>
@@ -57,6 +98,7 @@ export default function ClientsControl() {
             <span>
               <label>Nome</label>
               <input type='text' />
+              <button onClick={listarCliente}>ADD</button>
             </span>
             <table>
               <colgroup>
@@ -74,7 +116,14 @@ export default function ClientsControl() {
                 </tr>
               </thead>
               <tbody>
-                {/* map aqui */}
+                {tiposClientes.map((item) => (
+                  <tr>
+                    <td>{item.Nome}</td>
+                    <td>{item.CPF}</td>
+                    <td>{item.Tel}</td>
+                    <td>{item.Email}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
 

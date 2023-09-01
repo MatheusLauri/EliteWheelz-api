@@ -47,11 +47,11 @@ endpoints.get('/veiculos', async (req, resp) => { //lista todos
 })
 
 
-endpoints.get('/veiculos/:nome', async (req, resp) => { 
+endpoints.get('/veiculos', async (req, resp) => { 
     try{
-        const {nome} = req.params
+        const {busca} = req.query
 
-        const resposta = await PesquisarVeiculo(nome)
+        const resposta = await PesquisarVeiculo(busca)
 
         resp.send(resposta)
 
