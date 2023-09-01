@@ -12,7 +12,7 @@ export default function ClientsControl() {
   const[CPFCliente, setCPFCliente] = useState('')
   const[CnhCliente, setCnhCliente] = useState('')
   const[tiposClientes, setTiposClientes] = useState([])
-
+  
   const[cliente, setCliente] = useState('')
   const[erro, SetErro] = useState('')
 
@@ -42,7 +42,6 @@ export default function ClientsControl() {
       let url = 'http://localhost:5000/cliente/' + cliente
       let resposta = await axios.get(url)
       
-      console.log(resposta.data)
       setTiposClientes(resposta.data)
     } catch (err) {
       SetErro(err.response.data.erro)
@@ -62,6 +61,7 @@ export default function ClientsControl() {
 
           <section className='NovoCliente'>
             <h1> Novo Cliente </h1>
+            <h3>{erro}</h3>
             <span >
               <label>Nome</label>
               <input type='text' value={nomeCliente}  onChange={e => setnomeCliente(e.target.value)}/>
@@ -98,7 +98,7 @@ export default function ClientsControl() {
             <span>
               <label>Nome</label>
               <input type='text' />
-              <button onClick={listarCliente}>ADD</button>
+              <button onClick={listarCliente}>consult</button>
             </span>
             <table>
               <colgroup>
