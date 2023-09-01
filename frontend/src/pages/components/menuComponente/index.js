@@ -1,5 +1,11 @@
 import './index.scss'
 import logo from '../../../assets/logo.png'
+
+import Clientes from '../../../assets/Vector-1.png'
+import casinha from '../../../assets/Vector.png'
+import Chave from  '../../../assets/Vector-2.png'
+import Carrinho from  '../../../assets/Group.png'
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -20,27 +26,27 @@ export default function LateralMenu() {
                     <div className='options' >
                 <Link to='/'>
                         <div id='selected' >
-                        <i class="fa-solid fa-house"></i>
+                        <img src={casinha} />
                             <a>Home</a>
                         </div>
                 </Link>
 
                 <Link to='/clientsControl'>
                     <div id='selected'>
-                        <i class="fa-solid fa-user"></i>
+                        <img src={Clientes} />
                         <a>Clientes</a>
                     </div>
                 </Link>
                 <Link to='/carcontrol'>
                 <div id='selected'>
-                    <i class="fa-solid fa-car-rear"></i>
+                    <img src={Chave} />
                     <a>Veiculos</a>
                 </div>
                 </Link>
                 <Link to='/location'>
 
                 <div id='selected'>
-                    <i class="fa-solid fa-key"></i>
+                    <img src={Carrinho} />
                     <a>Locação</a>
                 </div>
                 </Link>
