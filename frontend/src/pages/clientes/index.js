@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Cabecalho from '../components/cabecalhoComponente/index.js';
 import LateralMenu from '../components/menuComponente/index.js';
+
+import lupa from '../../assets/iconamoon_search-bold.png'
 import './index.scss';
 import axios from 'axios';
 
@@ -96,9 +98,14 @@ export default function ClientsControl() {
           <section className='ClientsLista'>
             <h1>Lista de Clientes</h1>
             <span>
-              <label>Nome</label>
-              <input type='text' />
-              <button onClick={listarCliente}>consult</button>
+              <div>
+                <label>Nome</label>
+                <input type='text' />
+              </div>
+              
+              <div onClick={listarCliente}>
+                  <img  src={lupa}/>
+              </div>
             </span>
             <table>
               <colgroup>

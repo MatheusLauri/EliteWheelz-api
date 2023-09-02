@@ -1,6 +1,8 @@
 import './index.scss';
 import LateralMenu from '../components/menuComponente/index.js';
 import Cabecalho from '../components/cabecalhoComponente/index.js';
+
+import lupa from '../../assets/iconamoon_search-bold.png'
 import { useRef, useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -109,10 +111,12 @@ export default function CarsControl() {
                     <section className='Carrolista'>
                         <h1>Lista de Veículos</h1>
                         <span >
-                            <label>Modelo, Marca, Placa</label>
                             <div className=''  >
+                                <label>Modelo, Marca, Placa</label>
                                 <input type='text' />
-                                <i class="fa-light fa-magnifying-glass"></i>
+                            </div>
+                            <div>
+                                <img  src={lupa}/>
                             </div>
                         </span>
                         <table>

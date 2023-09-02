@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import Cabecalho from '../components/cabecalhoComponente/index.js';
 import LateralMenu from '../components/menuComponente/index.js';
 
-
+import lupa from '../../assets/iconamoon_search-bold.png'
 import './index.scss';
 
 
@@ -100,11 +100,15 @@ export default function Location() {
 
                     <section className='ClientsLista'>
                         <h1> Locações em Andamento </h1>
-                        <span className='inputBusc'>
-                            <label>Nome ou CPF</label>
-                            <input type='text'  />
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        </span>
+                        <div className='inputBusc'>
+                            <div>
+                                <label>Nome ou CPF</label>
+                                <input type='text'  />
+                            </div>
+                            <div>
+                                <img  src={lupa}/>
+                            </div>
+                        </div>
                         <table>
                             <colgroup>
                                 <col style={{ width: 20 + '%' }} />

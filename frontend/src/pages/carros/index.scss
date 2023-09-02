@@ -28,7 +28,7 @@
 
                 span {
                     display: flex;
-                    flex-direction: column;
+                    justify-content: space-between;
                     border: 1px solid #C7C7C7;
                     width: 250px;
                     margin: 5px;
@@ -43,9 +43,10 @@
 
                     div {
                         display: flex;
+                        flex-direction: column;
 
-                        i {
-                            color: #3C4261;
+                        img {
+                            max-width: 24px;
                         }
                     }
 
