@@ -8,7 +8,7 @@ import axios from 'axios';
 
 export default function CarsControl() {
 
-
+    const [veiculos, setVeiculos] = useState([]);
     const [tipos, setTipos] = useState([]);
 
     const [tipoVeiculo, setTipoVeiculo] = useState(0)
@@ -20,12 +20,21 @@ export default function CarsControl() {
     const [listarVeiculo, setListarVeiculo] = useState('')
     
     
+
+    async function listarTipos() {
+        let r = await axios.get('http://localhost:5000/tipo');
+        
+        setTipos(r.data);
+      }
+
+
     async function inserirCarro() {
+        console.log(tipoVeiculo)
 
         try {
-            
+
             let veiculo = {
-                idTipoVeiculo: tipoVeiculo,
+                tipoVeiculo: tipoVeiculo,
                 modelo: modeloVeiculo,
                 marca: marcaVeiculo,
                 placa: placaVeiculo,
@@ -43,10 +52,12 @@ export default function CarsControl() {
     }
 
 
-    async function listarTipos() {
-        let r = await axios.get('http://localhost:5000/veiculo/tipo');
-        setTipos(r.data);
-      }
+
+    async function listarVeiculos(){
+        let r = await axios.get('http://localhost:5000/veiculos/nmp?busca=' + listarVeiculo)
+        setVeiculos(...[r.data])
+    }
+
 
     return (
         <div className='CarsMain'>
@@ -62,44 +73,36 @@ export default function CarsControl() {
                     <section className='NovoCarro'>
                         <h1> Novo Veículo </h1>
                         <span >
-                            <label>Nome</label>
+                            <label>Tipo</label>
 
-                        {/*             
-                        <select id="veiculo" name="veiculo" value={tipoVeiculo} onChange={e => setTipoVeiculo(e.target.value)}>      
-                            {tipos.map(item =>
-                                <option value={item.id}> {item.DS_TIPO} </option>  
-                            )} 
-                        </select>
-
-                        {/* 
-                            <select id="veiculo" name="veiculo" value={tipoVeiculo} onChange={e => setTipoVeiculo(e.target.value)}>
-                                <option value="carro">selecionar</option>
-                                <option value="carro">Carro</option>
-                                <option value="motocicleta">Motocicleta</option>
+                            <select id="veiculo" name="veiculo" onClick={() => listarTipos()}>  
+                                    <option onClick={() => setTipoVeiculo(1)}>Selecionar</option>    
+                                    {tipos.map(item =>
+                                        <option value={item.ID_TIPO_VEICULO} onClick={() => setTipoVeiculo(item.ID_TIPO_VEICULO)}> {item.DS_TIPO} </option>  
+                                    )} 
                             </select>
-                         */}
+                        
 
-                         <input type='Number' value={tipoVeiculo} onChange={e => setTipoVeiculo(e.target.value)}></input>
                         </span>
 
                         <span >
-                            <label value={modeloVeiculo} onChange={e => setModeloVeiculo(e.target.value)}>Modelo</label>
-                            <input type='text' />
+                            <label>Modelo</label>
+                            <input type='text' value={modeloVeiculo} onChange={e => setModeloVeiculo(e.target.value)} />
                         </span>
 
                         <span >
-                            <label value={marcaVeiculo} onChange={e => setMarcaVeiculo(e.target.value)}>Marca</label>
-                            <input type='text' />
+                            <label>Marca</label>
+                            <input type='text'  value={marcaVeiculo} onChange={e => setMarcaVeiculo(e.target.value)}/>
                         </span>
 
                         <span >
-                            <label value={anoVeiculo} onChange={e => setAnoVeiculo(e.target.value)}>Ano</label>
-                            <input type='text' />
+                            <label>Ano</label>
+                            <input type='text'  value={anoVeiculo} onChange={e => setAnoVeiculo(e.target.value)} />
                         </span>
 
                         <span >
-                            <label value={placaVeiculo} onChange={e => setPlacaVeiculo(e.target.value)}>Placa</label>
-                            <input type='text' />
+                            <label >Placa</label>
+                            <input type='text' value={placaVeiculo} onChange={e => setPlacaVeiculo(e.target.value)} />
                         </span>
 
                         <span className='btnSpan'>
@@ -116,7 +119,7 @@ export default function CarsControl() {
                                 <input type='text' />
                             </div>
                             <div>
-                                <img  src={lupa}/>
+                                <img  src={lupa} onClick={() => listarVeiculos()}/>
                             </div>
                         </span>
                         <table>
@@ -138,14 +141,15 @@ export default function CarsControl() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>HB20</td>
-                                    <td>Hyunday</td>
-                                    <td>2016</td>
-                                    <td>Carro</td>
-                                    <td>abc-123</td>
-                                    <td className='btns' style={{ display: 'flex', height: 20 }}><i class="fa-regular fa-pen-to-square"></i> <i class="fa-solid fa-delete-left"></i></td>
+                                {veiculos.map((item) => (
+                                <tr key={item.id}>
+                                    <td>{item.modelo}</td>
+                                    <td>{item.marca}</td>
+                                    <td>{item.ano}</td>
+                                    <td>{item.tipoVeiculo}</td>
+                                    <td>{item.placa}</td>
                                 </tr>
+                                ))}
                             </tbody>
                         </table>
 

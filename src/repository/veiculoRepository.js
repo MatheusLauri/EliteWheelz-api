@@ -25,7 +25,7 @@ export async function ListarVeiculo () {
     
     const comando = 
         ` SELECT    ve.ID_VEICULO           AS Id,
-                    ve.ID_TIPO_VEICULO      AS TipoVeiculo,
+                    ve.ID_TIPO_VEICULO      AS tipoVeiculo,
                     tv.DS_TIPO              AS tipo,
                     ve.DS_MODELO            AS modelo,
                     ve.DS_MARCA             AS marca,
@@ -43,7 +43,7 @@ export async function ListarVeiculo () {
 export async function PesquisarVeiculo(busca) {
     let comando = `
         SELECT  ve.ID_VEICULO           AS Id,
-                ve.ID_TIPO_VEICULO      AS TipoVeiculo,
+                ve.ID_TIPO_VEICULO      AS tipoVeiculo,
                 tv.DS_TIPO              AS tipo,
                 ve.DS_MODELO            AS modelo,
                 ve.DS_MARCA             AS marca,

@@ -33,6 +33,8 @@ endpoints.post('/veiculo', async (req, resp) => {
 })
 
 
+
+
 endpoints.get('/veiculos', async (req, resp) => { //lista todos
     try{
         const resposta = await ListarVeiculo()
@@ -47,7 +49,9 @@ endpoints.get('/veiculos', async (req, resp) => { //lista todos
 })
 
 
-endpoints.get('/veiculos', async (req, resp) => { 
+
+
+endpoints.get('/veiculos/nmp', async (req, resp) => { 
     try{
         const {busca} = req.query
 
@@ -61,6 +65,9 @@ endpoints.get('/veiculos', async (req, resp) => {
         })
     }
 })
+
+
+
 
 endpoints.put('/veiculo/:id', async (req,resp) => {
     try{
