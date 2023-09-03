@@ -75,11 +75,11 @@ export default function CarsControl() {
                         <span >
                             <label>Tipo</label>
 
-                            <select id="veiculo" name="veiculo" onClick={() => listarTipos()}>  
-                                    <option onClick={() => setTipoVeiculo(1)}>Selecionar</option>    
-                                    {tipos.map(item =>
-                                        <option value={item.ID_TIPO_VEICULO} onClick={() => setTipoVeiculo(item.ID_TIPO_VEICULO)}> {item.DS_TIPO} </option>  
-                                    )} 
+                            <select id="veiculo" name="veiculo" onChange={(e) => setTipoVeiculo(e.target.value)} onClick={() => listarTipos()}>
+                                <option value="1">Selecionar</option>
+                                {tipos.map(item =>
+                                    <option key={item.ID_TIPO_VEICULO} value={item.ID_TIPO_VEICULO}> {item.DS_TIPO} </option>
+                                )}
                             </select>
                         
 
